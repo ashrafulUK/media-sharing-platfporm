@@ -1,7 +1,7 @@
-const IUPS = 'YOUR_IUPS_ENDPOINT';
-const RAI = 'YOUR_RAI_ENDPOINT';
-const DEL = 'YOUR_DELETE_ENDPOINT';
-const BLOB_ACCOUNT = 'https://YOUR_BLOB_STORAGE_NAME.blob.core.windows.net';
+const IUPS = 'https://imageuploadapi1.azurewebsites.net:443/api/uploadMedia/triggers/When_a_HTTP_request_is_received/invoke?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=6YqZC5rXeTLQ9d2xtDNKr9A0QSS0dwbtR9_613xyQgk';
+const RAI = 'https://imageuploadapi1.azurewebsites.net:443/api/getallImageFlow/triggers/When_a_HTTP_request_is_received/invoke?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=wPATRrskZTXqzOliozivUdqcTaTXXYY0GF_UbBSjmEI';
+const DEL = 'https://imageuploadapi1.azurewebsites.net:443/api/deleteMedia/triggers/When_a_HTTP_request_is_received/invoke?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=gnUxzM1SJvhgNtkdPSC8vi0ycnaSVSzB6EWpx3jx-g4';
+const BLOB_ACCOUNT = 'https://mediashareblob123.blob.core.windows.net';
 
 function login() {
   alert("Redirect to Azure Static Web App login (handled automatically).");
