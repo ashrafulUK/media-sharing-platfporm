@@ -1,85 +1,231 @@
+/* App.css with Dark/Light Mode Toggle and Enhanced Styles */
+
+:root {
+  --primary-bg: #121212;
+  --secondary-bg: #1c1c1c;
+  --text-color: #f5f5f5;
+  --accent: #00e676;
+  --hover-accent: #ff4081;
+  --card-bg: #1e1e2f;
+  --shadow-color: rgba(0, 255, 150, 0.4);
+}
+
+.light-mode {
+  --primary-bg: #f0f0f0;
+  --secondary-bg: #ffffff;
+  --text-color: #1a1a1a;
+  --accent: #3f51b5;
+  --hover-accent: #d50000;
+  --card-bg: #ffffff;
+  --shadow-color: rgba(63, 81, 181, 0.3);
+}
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f8;
-  margin: 0;
-  padding: 40px;
-  color: #333;
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  padding: 2rem 1rem 3rem;
+  min-height: 100vh;
 }
 
 h1 {
-  font-size: 2rem;
-  color: #222;
   text-align: center;
-  margin-bottom: 30px;
-}
-
-#authSection {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  max-width: 400px;
-  margin: 0 auto 40px;
+  justify-content: center;
+  gap: 0.5rem;
+  animation: fadeIn 0.8s ease;
 }
 
-form input, form select, form button {
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
+h2 {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.9rem;
+  color: var(--accent);
+  animation: fadeIn 0.8s ease;
 }
 
-form button {
-  background-color: #0078d4;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-form button:hover {
-  background-color: #005fa3;
-}
-
-#ImageList {
+.upload-controls-panel {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: var(--secondary-bg);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-#ImageList > div {
-  background: white;
-  padding: 10px;
+.search-input {
+  padding: 0.6rem 1rem;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border: none;
+  width: 250px;
+  font-size: 1rem;
+  background: #2c2c2c;
+  color: #f1f1f1;
+  outline: none;
+  transition: box-shadow 0.3s;
+}
+
+.search-input:focus {
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.upload-label {
+  font-size: 2rem;
+  color: var(--accent);
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.upload-label:hover {
+  color: var(--hover-accent);
+  transform: scale(1.1);
+}
+
+.upload-btn, .toggle-btn, .download, .theme-toggle {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  background: var(--accent);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.upload-btn:hover,
+.toggle-btn:hover,
+.download:hover,
+.theme-toggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 15px var(--shadow-color);
+}
+
+.preview {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.preview img,
+.preview video {
+  width: 320px;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.preview audio {
+  width: 320px;
+}
+
+.media-section {
+  margin-top: 2rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.media-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.media-gallery.list {
+  flex-direction: column;
+  align-items: center;
+}
+
+.media-gallery.list .media-card {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 850px;
+}
+
+.media-card {
+  background: var(--card-bg);
+  border: 1px solid #444;
+  padding: 1rem;
+  border-radius: 15px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+  animation: fadeInCard 0.5s ease forwards;
+}
+
+.media-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 35px var(--shadow-color);
+}
+
+.media-card img,
+.media-card video {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.media-card audio {
+  width: 100%;
+}
+
+.media-card p {
   text-align: center;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  word-break: break-word;
+  font-weight: 500;
 }
 
-img, video, audio {
-  max-width: 280px;
-  height: auto;
-  border-radius: 8px;
+.card-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
 
-button.delete-button {
-  margin-top: 10px;
-  background-color: #e74c3c;
+.del {
+  background-color: #2b2b2b;
+  color: #ff1744;
+  padding: 0.5rem 0.7rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  border: none;
+  transition: all 0.3s;
 }
 
-button.delete-button:hover {
-  background-color: #c0392b;
+.del:hover {
+  background-color: #ff1744;
+  color: white;
+  box-shadow: 0 0 12px rgba(255,0,64,0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
