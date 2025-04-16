@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Media Sharing Platform</title>
   <link rel="stylesheet" href="css/style.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
   <h1>Upload and View Media</h1>
+
+  <!-- Authentication Section -->
   <div id="authSection">
     <button onclick="login()">Login</button>
     <button onclick="logout()">Logout</button>
-    <p id="userInfo"></p>
   </div>
-  <form id="uploadForm" enctype="multipart/form-data">
-    <input type="text" id="FileName" placeholder="File Name" required><br>
-    <input type="file" id="UpFile" required><br>
+  <p id="userInfo" style="text-align:center;"></p>
+
+  <!-- Upload Form -->
+  <form id="uploadForm">
+    <input type="text" id="FileName" placeholder="Enter File Name" required />
+    <input type="file" id="UpFile" accept="image/*,audio/*,video/*" required />
+    
     <select id="mediaType" required>
+      <option value="">Select Media Type</option>
       <option value="image">Image</option>
       <option value="audio">Audio</option>
       <option value="video">Video</option>
-    </select><br>
+    </select>
+    
     <button type="submit">Upload</button>
   </form>
+
+  <!-- Media Gallery -->
   <div id="ImageList">Loading...</div>
+
   <script src="js/app.js"></script>
 </body>
 </html>
