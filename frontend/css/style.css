@@ -1,3 +1,85 @@
-body { font-family: Arial; padding: 20px; }
-img, video, audio { max-width: 300px; margin: 10px; display: block; }
-form, h1 { margin-bottom: 20px; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 40px;
+  color: #333;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #222;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#authSection {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 400px;
+  margin: 0 auto 40px;
+}
+
+form input, form select, form button {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #005fa3;
+}
+
+#ImageList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+#ImageList > div {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+img, video, audio {
+  max-width: 280px;
+  height: auto;
+  border-radius: 8px;
+}
+
+button.delete-button {
+  margin-top: 10px;
+  background-color: #e74c3c;
+}
+
+button.delete-button:hover {
+  background-color: #c0392b;
+}
