@@ -4,11 +4,21 @@ const DEL = 'https://imageuploadapi1.azurewebsites.net:443/api/deleteMedia/trigg
 const BLOB_ACCOUNT = 'https://mediashareblob123.blob.core.windows.net';
 
 function login() {
-  alert("Redirect to Azure Static Web App login (handled automatically).");
+  window.location.href = '/.auth/login/github';  // or /microsoft
 }
+
 function logout() {
-  alert("Redirect to logout endpoint.");
+  window.location.href = '/.auth/logout';
 }
+
+async function getUser() {
+  const res = await fetch('/.auth/me');
+  const data = await res.json();
+  if (data.clientPrincipal) {
+    document.getElementById("userInfo").innerText = "Welcome, " + data.clientPrincipal.userDetails;
+  }
+}
+
 
 function submitNewAsset() {
   const file = $('#UpFile')[0].files[0];
